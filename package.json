@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/cffc2a1d-94ab-4e67-afbb-36e7d5f6a8cf/deploy-status)](https://app.netlify.com/sites/simenwiik/deploys)",
+  "main": "index.js",
+  "scripts": {
+    "build:tailwind-dev": "tailwindcss -o public/style.css --jit --no-autoprefixer",
+    "build:tailwind-prod": "tailwindcss -o public/style.css --jit --no-autoprefixer --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revosw/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/revosw/portfolio/issues"
+  },
+  "homepage": "https://github.com/revosw/portfolio#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.15"
+  }
+}
