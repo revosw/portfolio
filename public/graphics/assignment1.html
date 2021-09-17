@@ -1,12 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link href="//fonts.googleapis.com/css?family=Mallanna&subset=latin" rel="stylesheet" type="text/css">
+  <style>
+    * {
+      font-family: 'Mallanna', sans-serif;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    }
+  </script>
   <title>Assignment 1 - Computer Graphics</title>
 </head>
-<body>
-  
+
+<body class="grid grid-cols-[max-content,1fr] pt-20 gap-8 max-w-4xl w-full m-auto">
+  <nav class="flex flex-col">
+    <a class="p-2" href="/index.html">Simen Wiik</a>
+    <div class="p-2"></div>
+    <p class="text-gray-100 bg-gray-800 rounded-md p-2">Computer Grapics</p>
+    <a class="text-gray-800 p-2" href="/graphics/assignment1.html">Assignment 1</a>
+    <a class="text-gray-800 p-2" href="/graphics/assignment2.html">Assignment 2</a>
+    <div class="p-2"></div>
+    <p class="text-gray-100 bg-gray-800 rounded-md p-2">Game Development</p>
+    <a class="text-gray-800 p-2" href="/game/assignment1.html">Assignment 1</a>
+  </nav>
+  <main class="grid gap-y-8 mb-72">
+    <!-- Question A -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">A</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Calculate the magnitude of the position vector $p$ for point $P(4,5,6)$
+    </h1>
+    <p class="col-start-2 text-2xl px-4">
+      If $p$ represents a vector, then $||p||$ represents its magnitude. The magnitude of a vector in 3D is given by the formula $\sqrt{X^2 + Y^2 + Z^2}$. This makes the magnitude of the
+      position vector $\sqrt{4^2 + 5^2 + 6^2} = 8.8$
+    </p>
+
+    <!-- Question B -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">B</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Convert vector $r = (1, 2, 3)$ to a unit vector.
+    </h1>
+    <p class="col-start-2 text-2xl px-4">
+      A unit vector is a vector where the longest dimension is shrunk down to a length of 1.
+      In this case, the Z component of the vector is the longest, with a length of 3.
+      To convert $r$ to a unit vector, we divide the vector by 3. The resulting vector then
+      becomes $r = (\frac{1}{3}, \frac{2}{3}, 1)$
+    </p>
+
+    <!-- Question C -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">C</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Compute the magnitude of $r + s$ where $r = (2, 3, 4)$ and $s = (5, 6, 7)$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      There are two steps to solve this problem. First we need to compute $r + s$.
+      To add these vectors, all you have to do is to add $r_x$ with $s_x$, $r_y$ with $s_y$ and $r_z$ with $s_z$.
+      Then we get the vector $(r_x+s_x, r_y+s_y, r_z+s_z)$ = $(2+5,3+6,4+7)$.
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      Now we have the vector $r+s = (7,9,11)$. The magnitude can be found with the formula
+      described in part A, which gives us $\sqrt{7^2 + 9^2 + 11^2} = 15.8$
+    </p>
+
+    <!-- Question D -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">D</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Find the angle between $r$ and $s$, where $r = (2, 0, 4)$ and $s = (5, 6, 10)$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      We can solve this using either the cross product or the dot product. By far the easiest way is to
+      use the dot product, so we'll have a look at that first.
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      The dot product formula is $A \cdot B = ||A||*||B||*\cos(\theta)$. Since we need the angle,
+      we flip the formula around to get $\cos(\theta) = \frac{A \cdot B}{||A|| * ||B||}$
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      We substitute $r$ for $A$ and $s$ for $B$. To compute $r \cdot s$, we multiply the vectors component wise.
+      The result of a dot product tells us how much vector $A$ moves us in the direction of vector $B$.
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      $
+      \begin{align*}
+      r \cdot s =&
+      \begin{bmatrix}
+      2*5 \\
+      0*6 \\
+      4*10 \\
+      \end{bmatrix}
+      
+      \\\\
+      
+      =& 2*5 + 0*6 + 4*10
+      
+      \\\\
+      
+      =& {\color{red} 50}
+
+      \\\\
+
+      ||r|| =& \sqrt{2^2 + 0^2 + 4^2}
+      
+      \\\\
+
+      =& {\color{red} 2\sqrt{5}}
+
+      \\\\
+
+      ||s|| =& \sqrt{5^2 + 6^2 + 10^2}
+      
+      \\\\
+
+      =& {\color{red} \sqrt{161}}
+
+      \\\\
+
+      \frac{||r \cdot s||}{||r|| * ||s||} =& \frac{50}{2\sqrt{5} * \sqrt{161}}
+      
+      \\\\
+
+      =& {\color{blue} 0.881}
+
+      \\\\
+
+      \arccos\left(\frac{||r \cdot s||}{||r|| * ||s||}\right) =& \arccos(0.881)
+
+      \\\\
+
+      =& {\color{indigo} 28.22°}
+      
+      \end{align*}
+      $
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      The cross product formula is $||A \times B|| = ||A||*||B||*\sin(\theta)$. Since we need the angle,
+      we flip the formula around to get $\sin(\theta) = \frac{||A \times B||}{||A|| * ||B||}$
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      We substitute $r$ for $A$ and $s$ for $B$. To compute $r \times s$, we set up a kind of determinant matrix. The
+      result of a cross product is a new vector that tells us the direction and length of the vector perpendicular to $r$ and $s$.
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+      $
+      \begin{align*}
+      r \times s =&
+      \begin{vmatrix}
+      X & Y & Z \\
+      2 & 0 & 4 \\
+      5 & 6 & 10 \\
+      \end{vmatrix}
+      
+      \\\\
+      
+      =& X
+      \begin{vmatrix}
+      0 & 4 \\
+      6 & 10 \\
+      \end{vmatrix}
+      - Y
+      \begin{vmatrix}
+      2 & 4 \\
+      5 & 10 \\
+      \end{vmatrix}
+      + Z
+      \begin{vmatrix}
+      2 & 0 \\
+      5 & 6 \\
+      \end{vmatrix}
+      
+      \\\\
+      
+      =& + X(0*10 - 4*6) \\
+      & - Y(2*10 - 4*5) \\
+      & + Z(2*6 - 0*5)
+      
+      \\\\
+      
+      =& -24X -0Y +12Z
+      
+      \\\\
+
+      ||r \times s|| =& \sqrt{(-24)^2 + (-0)^2 + 12^2}
+      
+      \\\\
+
+      =& {\color{red} 12\sqrt{5}}
+
+      \\\\
+
+      ||r|| =& \sqrt{2^2 + 0^2 + 4^2}
+      
+      \\\\
+
+      =& {\color{red} 2\sqrt{5}}
+
+      \\\\
+
+      ||s|| =& \sqrt{5^2 + 6^2 + 10^2}
+      
+      \\\\
+
+      =& {\color{red} \sqrt{161}}
+
+      \\\\
+
+      \frac{||r \times s||}{||r|| * ||s||} =& \frac{12\sqrt{5}}{2\sqrt{5} * \sqrt{161}}
+      
+      \\\\
+
+      =& {\color{blue} 0.473}
+
+      \\\\
+
+      \arcsin\left(\frac{||r \times s||}{||r|| * ||s||}\right) =& \arcsin(0.473)
+
+      \\\\
+
+      =& {\color{indigo} 28.22°}
+      
+      \end{align*}
+      $
+    </p>
+
+    <!-- Question E -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">E</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Calculate the vector normal to the plane defined by the points $P1(5, 0, 0)$, $P2(0, 0, 5)$ and $P3(10, 0, 5)$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      Insert answer here
+    </p>
+
+    <!-- Question F -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">F</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Compute the area of the triangle defined by points $P1(5, 0, 0)$, $P2(0, 0, 5)$ and $P3(10, 0, 5)$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      Insert answer here
+    </p>
+
+    <!-- Question G -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">G</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Find the implicit equation of the line that crosses the points $P1(1, 2, 0)$ and $P2(3, 1, 5)$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      Insert answer here
+    </p>
+
+    <!-- Question H -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">H</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Compute the angle between the lines defined by $2x + 2y − 4 = 0$ and $2x + 4y − 4 = 0$.
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      Insert answer here
+    </p>
+
+    <!-- Quetsion I -->
+    <span class="bg-gray-800 text-4xl p-4 text-white">I</span>
+    <h1 class="text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic">
+      Compute the distance of point $P(1, 1)$ to the line $f(x,y) = x + y − 1 = 0$
+    </h1>
+    <p class="col-start-2 text-2xl p-4">
+      Let's start with a partial differentiation of $x$ and $y$.
+    </p>
+    <p class="col-start-2 text-2xl p-4">
+
+      $
+      \begin{align*}
+      \frac{\partial f}{\partial {\color{red} x}} =& 1 + y - 1
+
+      \\\\
+
+      \nabla f =&
+      \begin{bmatrix}
+      \frac{\partial f}{\partial {\color{red} x}} \\
+      \frac{\partial f}{\partial y} \\
+      \end{bmatrix}
+      \end{align*}
+      $
+    </p>
+  </main>
 </body>
+
 </html>
