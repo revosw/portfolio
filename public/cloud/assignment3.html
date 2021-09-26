@@ -7,26 +7,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
   <link href="//fonts.googleapis.com/css?family=Mallanna&subset=latin" rel="stylesheet" type="text/css">
-  <style>
-    * {
-      font-family: 'Mallanna', sans-serif;
-    }
-  </style>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="/css/reveal/reveal.css">
+  <link rel="stylesheet" href="/css/reveal/theme/black.css">
+  <script type="module">
+    import Reveal from '/js/lib/reveal.esm.js';
+    import Markdown from '/js/plugin/markdown/markdown.esm.js';
+    let deck1 = new Reveal(document.querySelector('.deck1'), {
+      embedded: true,
+      keyboardCondition: 'focused' // only react to keys when focused
+    });
+    deck1.initialize();
+
+    // If I want to have more than one deck on the same page
+    // let deck2 = new Reveal(document.querySelector('.deck2'), {
+    //   embedded: true,
+    //   keyboardCondition: 'focused' // only react to keys when focused
+    // });
+    // deck2.initialize();
+  </script>
+
   <title>Assignment 3 - Cloud Services</title>
+
+  <!-- Components -->
+  <script defer src="/js/components/siteNav.js"></script>
+  <!-- <script type="module" src="/js/app.js"></script> -->
 </head>
 
 <body class="grid grid-cols-[max-content,1fr] pt-20 gap-8 max-w-4xl w-full m-auto">
-  <nav class="flex flex-col">
-    <a class="p-2" href="/index.html">Simen Wiik</a>
-    <div class="p-2"></div>
-    <p class="text-gray-100 bg-gray-800 rounded-md p-2">Computer Grapics</p>
-    <a class="text-gray-800 p-2" href="/graphics/assignment1.html">Assignment 1</a>
-    <a class="text-gray-800 p-2" href="/graphics/assignment2.html">Assignment 2</a>
-    <div class="p-2"></div>
-    <p class="text-gray-100 bg-gray-800 rounded-md p-2">Game Development</p>
-    <a class="text-gray-800 p-2" href="/game/assignment1.html">Assignment 1</a>
-  </nav>
-  <main class="grid">
+  <site-nav></site-nav>
+  <main>
+    <div class="reveal deck1">
+      <div class="slides">
+        <section>
+          <img src="/img/cloud/providers.png" alt="Cloud providers">
+          <h1 class="r-fit-text">Cloud providers</h1>
+        </section>
+        <section>Slide 2</section>
+      </div>
+    </div>
+
+    <!-- If I want to have more than one deck on the same page -->
+    <!-- <div class="reveal deck2">
+      <div class="slides">
+        <section>Slide 5</section>
+        <section>Slide 2</section>
+      </div>
+    </div> -->
   </main>
 </body>
 
