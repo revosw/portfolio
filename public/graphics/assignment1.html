@@ -36,6 +36,7 @@
       x: points[0],
       y: points[1],
       z: points[2],
+      text: ["P1", "P2", "P3"],
       type: "mesh3d",
       showscale: false
     }
@@ -58,7 +59,7 @@
           range: [0, 10]
         }
       },
-      paper_bgcolor: "#aaa",
+      paper_bgcolor: "#ddf",
       plot_bgcolor: "#049",
       colorway: ["#524", "#00a", "#4d2"],
       width: 500,
@@ -280,9 +281,86 @@
       Calculate the vector normal to the plane defined by the points $P1(5, 0, 0)$, $P2(0, 0, 5)$ and $P3(10, 0, 5)$
     </h1>
     <p class="answer-text">
-      a
+      The trianlge formed by points P1, P2 and P3 looks like what's shown in the 3D visualization below.
+      Hover over a corner to see which point is which.
     </p>
     <div class="col-start-2" id="surface"></div>
+    <span class="col-start-2 text-gray-800 text-sm m-auto">
+      The reason P3 is (10, 0.1, 5) instead of (10, 0, 5) is because of a <a class="underline" href="https://community.plotly.com/t/mesh3d-triangle-disappears-if-i-set-all-y-coords-to-0-0-0-but-reappears-when-0-0-0-1/57024">bug with plotly</a>.
+    </span>
+    <p class="answer-text">
+      In order to calculate the vector normal to this plane, we must first determine the direction
+      vectors $\overrightarrow{P1P2}$ and $\overrightarrow{P1P3}$ (any two vectors would work).
+      Then we can use the cross product to get the third vector, and normalize it (with cross product, order matters).
+    </p>
+    <p class="answer-text">
+      $
+      \begin{align*}
+      \overrightarrow{P1P2} =& P2 - P1
+      
+      \\\\
+
+      =& (0,0,5) - (5,0,0)
+      
+      \\\\
+      
+      =& (-5,0,5)
+
+      \\\\
+
+      \overrightarrow{P1P3} =& P3 - P1
+      
+      \\\\
+
+      =& (10,0,5) - (5,0,0)
+      
+      \\\\
+      
+      =& (5,0,5)
+
+      \\\\
+      
+      \overrightarrow{P1P2} \times \overrightarrow{P1P3}=&
+      \begin{vmatrix}
+       X & Y & Z \\
+      -5 & 0 & 5 \\
+       5 & 0 & 5 \\
+      \end{vmatrix}
+
+      \\\\
+
+      =& X
+      \begin{vmatrix}
+      0 & 5 \\
+      0 & 5 \\
+      \end{vmatrix}
+      - Y
+      \begin{vmatrix}
+      -5 & 5 \\
+      5 & 5 \\
+      \end{vmatrix}
+      + Z
+      \begin{vmatrix}
+      -5 & 0 \\
+      5 & 0 \\
+      \end{vmatrix}
+
+      \\\\
+
+      =& + X(0*5 - 5*0) \\
+      & - Y((-5)*5 - 5*5) \\
+      & + Z((-5)*0 - 0*5)
+
+      \\\\
+
+      =& 0X +50Y +0Z
+
+      \\\\
+
+      \frac{(0,50,0)}{||(0,50,0)||} =& (0,1,0)
+      \end{align*}
+      $
+    </p>
 
     <!-- Question F -->
     <span class="question-tab">1F</span>
@@ -290,7 +368,13 @@
       Compute the area of the triangle defined by points $P1(5, 0, 0)$, $P2(0, 0, 5)$ and $P3(10, 0, 5)$
     </h1>
     <p class="answer-text">
-      Insert answer here
+      Coincidentally, the cross product of two vectors has another property. Its magnitude will give us the
+      area of the parallelogram like shown below.
+    </p>
+    <img class="col-start-2" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Cross_product_parallelogram.svg" />
+    <p class="answer-text">
+      So in order to get the area of the triangle formed by the three points, we divide
+      the magnitude by 2. $\frac{||(0,50,0)||}{2} = 25$
     </p>
 
     <!-- Question G -->
@@ -299,7 +383,7 @@
       Find the implicit equation of the line that crosses the points $P1(1, 2, 0)$ and $P2(3, 1, 5)$
     </h1>
     <p class="answer-text">
-      Insert answer here
+      Implicit equation problems are solved 
     </p>
 
     <!-- Question H -->
