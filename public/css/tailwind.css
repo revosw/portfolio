@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Mallanna'
+}
+
+.question-tab {
+  @apply col-start-1 bg-gray-800 text-4xl p-4 text-white
+}
+.question-text {
+  @apply text-gray-800 text-3xl p-4 border-t-2 border-gray-800 italic
+}
+.answer-text {
+  @apply col-start-2 text-2xl px-4
+}
