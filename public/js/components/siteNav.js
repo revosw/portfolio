@@ -12,7 +12,8 @@ class SiteNav extends HTMLElement {
       <a class="text-gray-800 p-2" href="/graphics/assignment2.html">Assignment 2</a>
       <div class="p-2"></div>
       <p class="text-gray-100 bg-gray-800 rounded-md p-2">Game Development</p>
-      <a class="text-gray-800 p-2" href="/game/assignment1.html">Assignment 1</a>
+      <a class="text-gray-800 p-2" href="/game/assignment2.html">Assignment 2</a>
+      <a class="text-gray-800 p-2" href="/game/assignment3.html">Assignment 3</a>
       <div class="p-2"></div>
       <p class="text-gray-100 bg-gray-800 rounded-md p-2">Cloud Services</p>
       <a class="text-gray-800 p-2" href="/cloud/assignment3.html">Assignment 3</a>
