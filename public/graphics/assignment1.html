@@ -93,10 +93,12 @@
       Convert vector $r = (1, 2, 3)$ to a unit vector
     </h1>
     <p class="answer-text">
-      A unit vector is a vector where the longest dimension is shrunk down to a length of 1.
-      In this case, the Z component of the vector is the longest, with a length of 3.
-      To convert $r$ to a unit vector, we divide the vector by 3. The resulting vector then
-      becomes $r = (\frac{1}{3}, \frac{2}{3}, 1)$
+      A unit vector is a vector that is scaled such that the magnitude is 1.
+      In order to convert $r$ to a unit vector, we need to divide all its
+      components by its magnitude. The magnitude is in this case
+      $||r|| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{14} = 3.74$. The resulting vector then
+      becomes $r = (\frac{1}{3.74}, \frac{2}{3.74}, \frac{3}{3.74})$ which leads us to
+      $r = (0.267, 0.535, 0.802)$
     </p>
 
     <!-- Question C -->
@@ -167,7 +169,7 @@
 
       \\\\
 
-      \frac{||r \cdot s||}{||r|| * ||s||} =& \frac{50}{2\sqrt{5} * \sqrt{161}}
+      \frac{r \cdot s}{||r|| * ||s||} =& \frac{50}{2\sqrt{5} * \sqrt{161}}
 
       \\\\
 
@@ -175,7 +177,7 @@
 
       \\\\
 
-      \arccos\left(\frac{||r \cdot s||}{||r|| * ||s||}\right) =& \arccos(0.881)
+      \arccos\left(\frac{r \cdot s}{||r|| * ||s||}\right) =& \arccos(0.881)
 
       \\\\
 
@@ -405,8 +407,19 @@
       Compute the angle between the lines defined by $2x + 2y − 4 = 0$ and $2x + 4y − 4 = 0$
     </h1>
     <p class="answer-text">
-      Insert answer here
+      In this case, we can convert both functions to explicit functions.
+      $2x + 2y − 4 = 0$ turns into $y = -x + 2$ and $2x + 4y − 4 = 0$
+      turns into $y = -\frac{1}{2}x -1$. The constant factor in these equations
+      don't matter, because we just want the slope of the curve. So we
+      throw the constant factors out to get $y = -x$ and $y = -\frac{1}{2}x$
+      
     </p>
+    <p class="answer-text">
+      We can make up vectors of these lines, (1, -0.5) and (1, -1) and do the same
+      calculation as we did in 1D to find the angle between them. The angle
+      between the lines is $18.43°$
+    </p>
+    <iframe class="answer-text" src="https://www.desmos.com/calculator/tth3yggmjm?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 
     <!-- Quetsion I -->
     <span class="question-tab">1I</span>
@@ -459,8 +472,22 @@
       intersection record? If not, why?
     </h1>
     <p class="answer-text">
-      Insert answer here
+      We start from the ray origin. $(s - ro) \cdot rd$ gives us the distance we
+      need to travel along $rd$ to get a right triangle, in our case $3$. We can now determine if
+      the opposite side of our right triangle is longer than 1 (radius of sphere).
+      If it's longer, it means the ray points outside the sphere, while shorter
+      means it points through the sphere.
     </p>
+    <img class="answer-text" src="/img/graphics/3A.png" alt="">
+    <p class="answer-text">
+      If we subtract $(s - ro) - 3 * rd$, we get 0. So as it turns out, the ray is pointing directly at the origin. This means
+      the intersection normal is perpendicular to the surface. See the picture below for a trivial
+      explanation why 0 must mean the vectors are parallell.
+    </p>
+    <p class="answer-text">
+      To summarize: $position = (\frac{1}{3},\frac{1}{3},\frac{1}{3}) | normal = 90° | t = 2$
+    </p>
+    <img class="answer-text" src="/img/graphics/3A-2.png" alt="">
     <span class="question-tab">3B</span>
     <h1 class="question-text">
       Does the ray intersect the triangle? If yes, what data would be put in the intersection record? If not,
